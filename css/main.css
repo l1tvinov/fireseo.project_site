@@ -12,7 +12,7 @@
 /* BOOTSTRAP SETTINGS SECTION */
 
 /* gutter 20px (10px + 10px). Comment this code for default gutter start at 1.5rem (24px) wide. */
-.container,
+/*.container,
 .container-fluid,
 .container-lg,
 .container-md,
@@ -25,7 +25,7 @@
 .row,
 .row>* {
   --bs-gutter-x: 1.9rem;
-}
+}*/
 
 
 
@@ -82,6 +82,7 @@ body {
   min-width: 320px;
   position: relative;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 li[class] {
@@ -117,13 +118,14 @@ img {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
+  max-width: 100%;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 17px 0.75rem;
-  font-size: 1rem;
+  font-size: 16px;
   text-transform: uppercase;
   border-radius: 0.25rem;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -170,10 +172,154 @@ img {
 }
 
 .block-title {
+  font-family: Rubik;
   font-weight: 500;
   font-size: 36px;
   line-height: 48px;
   margin-bottom: 40px;
+}
+
+/* Hide original inputs */
+input[type=checkbox] {
+  display: none;
+}
+
+/* Checkboxes */
+input[type=checkbox]+label span {
+  border: 1px solid #BCBCBC;
+  font-size: 24px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 0.25em;
+  margin: 4px 8px 8px 8px;
+  padding: 2px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input[type=checkbox]:checked+label span::after {
+  content: "\2713";
+  color: var(--accent);
+}
+
+.wpcf7-form .acceptance-180 [type=checkbox]+span.wpcf7-list-item-label:after {
+  font-size: 16px;
+}
+
+
+.hero {}
+
+.hero__intro {
+  /*padding-top: 160px;*/
+  padding-bottom: 125px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__title {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+}
+
+.hero__list {
+  padding: 0;
+  margin-bottom: 65px;
+}
+
+.hero__list-item {
+  position: relative;
+  color: #FFFFFF;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.hero__parnner-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.hero__form {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hero__form-description {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.hero__form-description .accent {
+  font-weight: 600;
+}
+
+.hero__form-group input {
+  padding: 18px 15px;
+  margin-bottom: 20px;
+  background: #F8F8F8;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+
+}
+
+.hero__form .btn {
+  width: 100%;
+}
+
+.hero__form-group input::placeholder {
+  color: #BCBCBC;
+}
+
+.hero__form .agree {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.fast-links {
+  margin-top: 40px;
+}
+
+.fast-link__list {
+  padding: 0;
+
+}
+
+.fast-link__link {
+  color: #000000;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 17px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #F2F2F2;
+  border-radius: 4px;
+  transition: 0.3s ease-in;
+
+}
+
+.fast-link__link:hover {
+  /*background-color: var(--accent);*/
+  background-color: #050323;
+  color: #fff;
+}
+
+.fast-link__link.active {
+  background: #050323;
+  border-radius: 4px;
+  color: #FFFFFF;
 }
 
 .results {
@@ -221,7 +367,8 @@ img {
 }
 
 .price .btn {
-  max-width: 200px;
+  width: 200px;
+
 }
 
 .price__title {
@@ -261,6 +408,11 @@ img {
 
 .stages__header {
   margin-bottom: 70px
+}
+
+.stages-tabs-controls {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .stages-tabs__control {
@@ -382,6 +534,10 @@ img {
 .stages-tabs__content-header {
   margin: 15px 0 0;
   max-width: 100%;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
   letter-spacing: normal;
   text-align: center
 }
@@ -389,7 +545,7 @@ img {
 .stages-tabs__content-title {
   margin: 0 0 10px;
   color: var(--accent);
-  font-size: 25px;
+  font-size: 30px;
   line-height: 47px;
   letter-spacing: normal
 }
@@ -404,8 +560,9 @@ img {
   font-size: 20px;
   line-height: 30px;
   position: relative;
-  padding-left: 35px;
+  padding-left: 40px;
   margin-bottom: 20px;
+  color: #fff;
   list-style: none;
 }
 
@@ -453,7 +610,7 @@ img {
   color: #858585;
 }
 
-.included__list-item.activ::before {
+.included__list-item.active::before {
   content: '';
   width: 0;
   height: 0;
@@ -466,12 +623,17 @@ img {
 
 }
 
-.included__list-item.activ {
+.included__list-item.active {
   background-color: var(--accent);
   color: #fff;
 }
 
-.included__list-text {}
+.included__list-text {
+  font-family: Rubik;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+}
 
 .included__list-img {
   width: 500px;
@@ -482,7 +644,7 @@ img {
   transform: scaleY(0.5);
 }
 
-.included__list-img.activ {
+.included__list-img.active {
   opacity: 1;
   height: auto;
   transform: scaleY(1);
@@ -499,10 +661,20 @@ img {
 .banner {}
 
 .banner .btn {
-  max-width: 260px;
+  width: 260px;
 }
 
-.bammer__content {}
+.bammer__content {
+  margin-bottom: 35px;
+}
+
+.bammer__content p {
+  color: #fff;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+}
 
 .banner__img {
   background-position: bottom;
@@ -532,7 +704,7 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  min-height: 415px;
+  min-height: 440px;
 }
 
 .keys .btn {
@@ -562,6 +734,10 @@ img {
 
 .keys__content p {
   margin-bottom: 10px;
+  color: #fff;
+  font-style: normal;
+font-weight: normal;
+font-size: 14px;
 }
 
 /* ! container нужен чтобы перебить родные стили */
@@ -591,11 +767,13 @@ img {
 
 .container .owl-carousel .owl-nav button.owl-prev {
   background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyOSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuOTEzNjkgMTUuODg4Mkw5LjIzOTQ5IDE0LjU2MjRMMy42MTQ2NyA4LjkzNzU2TDI4LjA2MjUgOC45Mzc1NkwyOC4wNjI1IDcuMDYyNUwzLjYxNDg1IDcuMDYyNUw5LjIzOTQ5IDEuNDM3ODVMNy45MTM2OSAwLjExMjA1M0wwLjAyNTUxMiA4LjAwMDEyTDcuOTEzNjkgMTUuODg4MloiIGZpbGw9IiNGRjRCMUIiLz4KPC9zdmc+Cg==');
+  position: static;
 
 }
 
 .container .owl-carousel .owl-nav button.owl-next {
   background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyOSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIxLjA4NjMgMC4xMTE4MTZMMTkuNzYwNSAxLjQzNzYyTDI1LjM4NTMgNy4wNjI0NEgwLjkzNzVWOC45Mzc1SDI1LjM4NTJMMTkuNzYwNSAxNC41NjIxTDIxLjA4NjMgMTUuODg3OUwyOC45NzQ1IDcuOTk5ODhMMjEuMDg2MyAwLjExMTgxNloiIGZpbGw9IiNGRjRCMUIiLz4KPC9zdmc+Cg==');
+  position: static;
 }
 
 
@@ -648,7 +826,10 @@ img {
 
 
 
-.reviews-block {}
+.reviews-block {
+  padding-bottom: 64px;
+  padding-top: 64px;
+}
 
 .reviews {}
 
@@ -660,7 +841,7 @@ img {
   padding: 40px 25px;
   display: flex;
   flex-wrap: wrap;
-  min-height: 300px;
+  min-height: 320px;
 }
 
 .review__image-part {
@@ -677,6 +858,11 @@ img {
 .review__content {
   padding: 0 10px;
   min-width: 250px;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
 }
 
 .review__name {
@@ -690,7 +876,11 @@ img {
 
 .review__name p {
   margin: 0;
-  line-height: 1;
+  line-height: 1.7;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
 }
 
 .review__text {
@@ -758,4 +948,63 @@ img {
   margin: 0 auto;
   width: 260px;
   display: block;
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1360px;
+  }
+}
+
+/* Medium (md) */
+@media (max-width : 768px) {
+  .right-line {
+    border-right: 0 solid #F2F2F2;
+  }
+
+  .stages-tabs__content-inner::before {
+    display: none;
+  }
+
+  .included__list-item.active::before {
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -50px;
+    transform: rotate(90deg);
+  }
+
+  .stages-tabs__content-header {
+    display: none !important;
+  }
+
+  .banner__img {
+    height: 330px;
+  }
+
+  .block-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .banner__inner {
+    padding-top: 50px;
+  }
+
+  .hero__parnner {
+    display: none;
+  }
+
+  .keyses-block,
+  .team,
+  .results,
+  .included-block,
+  .prices,
+  .compare,
+  .reviews-block {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
 }

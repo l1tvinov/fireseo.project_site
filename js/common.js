@@ -1,6 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // $('body').hide()
+  let sections = $('section'),
+    nav = $('.fast-link__nav');
+    //nav_height = nav.outerHeight();
+   let nav_height = 0;
+
+  $(window).on('scroll', function () {
+    $('.fast-link__link').removeClass('active');
+    let cur_pos = $(this).scrollTop();
+    sections.each(function () {
+      let top = $(this).offset().top - nav_height - 180,
+        bottom = top + $(this).outerHeight();
+      if (cur_pos >= top && cur_pos <= bottom) {
+        nav.find('a').removeClass('active');
+        sections.removeClass('active');
+        $(this).addClass('active');
+        nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+      }
+    });
+  });
+  nav.find('a').on('click', function () {
+    let $el = $(this),
+      id = $el.attr('href');
+    $('html, body').animate({
+      scrollTop: $(id).offset().top - nav_height
+    }, 600);
+    return false;
+  });
 
   var jsTriggers = document.querySelectorAll('.included__list-item');
   //jsContents = document.querySelectorAll('.included__list-img');
@@ -9,14 +35,14 @@ jsTriggers.forEach(function(trigger) {
  trigger.addEventListener('mouseover', function() {
     var id = this.getAttribute('data-tab'),
         content = document.querySelector('.included__list-img[data-tab="'+id+'"]'),
-        activeTrigger = document.querySelector('.included__list-item.activ'),
-        activeContent = document.querySelector('.included__list-img.activ');
+        activeTrigger = document.querySelector('.included__list-item.active'),
+        activeContent = document.querySelector('.included__list-img.active');
 
-    activeTrigger.classList.remove('activ'); 
-    trigger.classList.add('activ'); 
+    activeTrigger.classList.remove('active'); 
+    trigger.classList.add('active'); 
     
-    activeContent.classList.remove('activ'); 
-    content.classList.add('activ'); 
+    activeContent.classList.remove('active'); 
+    content.classList.add('active'); 
  });
 });
 
@@ -59,6 +85,7 @@ jsTriggers.forEach(function(trigger) {
           autoHeight: true,
           margin: 10,
           navText: [],
+          navElement: 'button',
     
         });
 
@@ -69,6 +96,7 @@ jsTriggers.forEach(function(trigger) {
           loop: false,
           autoHeight: true,
           navText: [],
+          navElement: 'button',
     
         });
 
@@ -94,6 +122,7 @@ jsTriggers.forEach(function(trigger) {
     loop: false,
     margin: 10,
     navText: [],
+    navElement: 'button',
     responsive: {
       768: {
         items: 3,
@@ -110,6 +139,7 @@ jsTriggers.forEach(function(trigger) {
     margin: 30,
     //autoHeight: true,
     navText: [],
+    navElement: 'button',
     responsive: {
       768: {
         items: 2,

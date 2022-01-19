@@ -47,7 +47,7 @@
   display: none;
 }
 
-.included__list-item.activ::before {
+.included__list-item.active::before {
   left: 0;
   right: 0;
   margin: auto;
